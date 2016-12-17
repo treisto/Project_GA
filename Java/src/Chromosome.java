@@ -7,6 +7,7 @@
 /** Assistant Cesar Diaz                      **/
 /***********************************************/ 
 
+import java.util.Arrays;
 import java.util.Random;
 import java.io.* ;
 
@@ -33,6 +34,7 @@ public class Chromosome implements Serializable
     	double random = new Random().nextDouble();
     	double result = start + (random * (end - start));
     	alleles[i]=(byte)result;
+    	//System.out.println(alleles.length + " " + Arrays.toString(alleles));
 	}
     	
   }

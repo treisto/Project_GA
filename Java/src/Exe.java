@@ -43,7 +43,7 @@ public class Exe
     double tf         = (double)0.0 ;               // Target fitness being sought
     long   MAX_ISTEPS = 5000;  									/////////(3) we change the execution steps by this number.
     int    n          = 50;                         //number of iterations
-    int    results[];
+    int    results[];                               //array where we store the result of each iteration (best Makespan)
     results = new int[n];
     
     for (int iterations=0; iterations<n; iterations++)
@@ -53,7 +53,7 @@ public class Exe
 
     // problem = new ProblemPPeaks(); 
     //problem = new ProblemPPeaks();
-    problem = new MyproblemMMSP("u_s_lolo_512_16.txt"); 				/////(4) we open our file we desire.
+    problem = new MyproblemMMSP("u_s_hihi_512_16.txt"); 				/////(4) we open our file we desire.
     //InstanceParser ip = new InstanceParser("u_c_hihi_512_16.txt");
     //ip.readInstanceFile();
     
@@ -71,7 +71,7 @@ public class Exe
     {  
       ga.go_one_step();
       System.out.print(step); System.out.print("  ");
-      System.out.println(ga.get_bestf());
+      System.out.println((int)ga.get_bestf());
 
       if(     (problem.tf_known())                    &&
       (ga.get_solution()).get_fitness()<=problem.get_target_fitness()
@@ -86,7 +86,7 @@ public class Exe
 
     // Print the solution
     for(int i=0;i<gn*gl;i++)
-      System.out.print( (ga.get_solution()).get_allele(i)+"," ); System.out.println();
+      System.out.print((ga.get_solution()).get_allele(i)+"," ); System.out.println();
       System.out.println((ga.get_solution()).get_fitness());
       
       
@@ -101,7 +101,7 @@ public class Exe
       
     }//end for iterations  
     
-    	System.out.println("MakeSpans for "+n+" iterations:");
+    	System.out.println("MakeSpans for "+n+" iterations,"+" pc="+pc+", pm="+pm+":");   //Print the results for n (50) iterations 
     	for(int i=0;i<n;i++){
     		System.out.print(results[i]+",");
     	}
