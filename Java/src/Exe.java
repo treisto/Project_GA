@@ -38,8 +38,8 @@ public class Exe
     int    gn         = 512;                          // Gene number
     int    gl         = 1;                            // Gene length
     int    popsize    = 1024;                          // Population size
-    double pc         = 0.8;                          // Crossover probability
-    double pm  = 1.0/(double)((double)gn*(double)gl); // Mutation probability
+    double pc         = 1;                          // Crossover probability
+    double pm  = 0.5/(double)((double)gn*(double)gl); // Mutation probability
     double tf         = (double)0.0 ;               // Target fitness being sought
     long   MAX_ISTEPS = 5000;  									/////////(3) we change the execution steps by this number.
     int    n          = 50;                         //number of iterations
@@ -101,7 +101,7 @@ public class Exe
       
     }//end for iterations  
     
-    	System.out.println("MakeSpans for "+n+" iterations,"+" pc="+pc+", pm="+pm+":");   //Print the results for n (50) iterations 
+    	System.out.print("MakeSpans for "+n+" iterations,"+" pc="+pc+", pm="+pm+": ");   //Print the results for n (50) iterations 
     	for(int i=0;i<n;i++){
     		System.out.print(results[i]+",");
     	}
