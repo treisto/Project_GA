@@ -12,12 +12,12 @@ import java.util.Random;
 
 public abstract class Problem                    // Maximization task
 {
-    protected int GL=1;               	// Gene lenth in binary
+    protected int GL=1;               	// Gene length in binary
     protected int GN=1;               	// Gene number in one string
     protected int CL=GN*GL;           	// Chromosome length
     protected long fitness_counter;   	// Number of evaluations
     protected double target_fitness;  	// Target fitness value -MAXIMUM-
-    protected boolean tf_known;       	// Is the taret fitness known????
+    protected boolean tf_known;       	// Is the target fitness known????
     protected static Random r = new Random();	// Random uniform variable
     
     public Problem() {

@@ -48,12 +48,12 @@ public class Algorithm
     int p1, p2;
 
     p1 = (int)(r.nextDouble()*
-               (double)popsize + 0.5); // Round and then trunc to int
+               (double)popsize + 0.5); // Round and then truncate to int
     
     if(p1>popsize-1) p1=popsize-1;
     do
     {  p2 = (int)(r.nextDouble()*
-                  (double)popsize + 0.5);  // Round and then trunc to int
+                  (double)popsize + 0.5);  // Round and then truncate to int
       if(p2>popsize-1) p2=popsize-1;
     }
     while (p1==p2);
@@ -64,7 +64,7 @@ public class Algorithm
   }
 
   // SINGLE POINT CROSSOVER - ONLY ONE CHILD IS CREATED (RANDOMLY DISCARD 
-  // DE OTHER)
+  // THE OTHER)
   public Individual SPX (Individual p1, Individual p2)
   {
     int       rand;
@@ -94,10 +94,10 @@ public class Algorithm
   // MUTATE A INT CHROMOSOME
   public Individual mutate(Individual p1)
   {
-    byte alelle=0;
+//    byte alelle=0;
     Random r = new Random();
 
-	double start = 0;	///// (1) maschine from 0-16  because in the commented area we take 0 and 1.
+	double start = 0;	///// (1) machine from 0-16  because in the commented area we take 0 and 1.
 	double end = 16;
 	byte result;// = start + (r.nextDouble() * (end - start));
 	
@@ -154,7 +154,7 @@ public class Algorithm
 
   public void go_one_step() throws Exception
   {
-    aux_indiv.assign( SPX(select_tournament(),select_tournament()) );
+    aux_indiv.assign(SPX(select_tournament(),select_tournament()));
     aux_indiv.set_fitness(problem.evaluateStep(mutate(aux_indiv)));
     replace(aux_indiv);
   }

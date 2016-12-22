@@ -23,14 +23,14 @@ public class InstanceParser {
 		String instFile = baseDir+fileName;
 		BufferedReader br = null;
 		String line = "";
-		String lineSplitBy = " +";  							 //////(6) we remove all spaces 
+		String lineSplitBy = " +";  							 //////(6) remove all spaces 
 	 
 		try {
 	 
 			br = new BufferedReader(new FileReader(instFile));
 			int i=0;
 			while ((line = br.readLine()) != null) {
-				line=line.replace(",", ""); //// (5) we swap comma with the empty symbol in order to be erased all commas from the file.
+				line=line.replace(",", ""); // (5) swap comma with the empty symbol in order to erase all commas from the file.
 			    // use comma as separator
 				String[] splittedLine = line.split(lineSplitBy);
 				if(splittedLine.length>1){
@@ -38,8 +38,6 @@ public class InstanceParser {
 						executionTimeVectors[i][j]=Double.parseDouble(splittedLine[j+1]); 		///////(7) erase numbers from the first column of the file. 
 					}
 				}
-				//System.out.println("Country [code= " + country[4] 
-	            //                     + " , name=" + country[5] + "]");
 				i++;
 			}
 	 

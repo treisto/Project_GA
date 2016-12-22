@@ -7,7 +7,7 @@ import java.util.Random;
 /** Prof. Pascal Bouvry                       **/
 /** Assistant Patricia Ruiz                   **/
 /** Assistant Cesar Diaz                      **/
-//8888888888888//**********************************************/
+/***********************************************/
 
 public class Exe
 {
@@ -15,12 +15,12 @@ public class Exe
   {
 /*     
     // PARAMETERS PPEAKS 
-    int    gn         = 512;                           // Gene number
+    int    gn         = 512;                          // Gene number
     int    gl         = 1;                            // Gene length
     int    popsize    = 512;                          // Population size
     double pc         = 0.8;                          // Crossover probability
     double pm  = 1.0/(double)((double)gn*(double)gl); // Mutation probability
-    double tf         = (double)1 ;              // Target fitness beign sought
+    double tf         = (double)1 ;                   // Target fitness being sought
     long   MAX_ISTEPS = 50000;
 
       
@@ -35,14 +35,14 @@ public class Exe
    */
 	  
     // PARAMETERS MMSP
-    int    gn         = 512;                          // Gene number
-    int    gl         = 1;                            // Gene length
-    int    popsize    = 1024;                          // Population size
+    int    gn         = 512;                        // Gene number
+    int    gl         = 1;                          // Gene length
+    int    popsize    = 1024;                        // Population size
     double pc         = 1;                          // Crossover probability
-    double pm  = 0.5/(double)((double)gn*(double)gl); // Mutation probability
+    double pm  = 1/(double)((double)gn*(double)gl); // Mutation probability
     double tf         = (double)0.0 ;               // Target fitness being sought
-    long   MAX_ISTEPS = 5000;  									/////////(3) we change the execution steps by this number.
-    int    n          = 50;                         //number of iterations
+    long   MAX_ISTEPS = 50000;  				////////(3) we change the execution steps by this number.
+    int    n          = 1;                          //number of iterations (steps)
     int    results[];                               //array where we store the result of each iteration (best Makespan)
     results = new int[n];
     
@@ -53,7 +53,7 @@ public class Exe
 
     // problem = new ProblemPPeaks(); 
     //problem = new ProblemPPeaks();
-    problem = new MyproblemMMSP("u_s_hihi_512_16.txt"); 				/////(4) we open our file we desire.
+    problem = new MyproblemMMSP("u_c_hihi_512_16.txt"); 				////////(4) we open the file we need
     //InstanceParser ip = new InstanceParser("u_c_hihi_512_16.txt");
     //ip.readInstanceFile();
     
@@ -89,24 +89,15 @@ public class Exe
       System.out.print((ga.get_solution()).get_allele(i)+"," ); System.out.println();
       System.out.println((ga.get_solution()).get_fitness());
       
-      
-      
-      //for (int i=0; i<length; i++){
-      	//double start = 0;		//(2) we use 0-16 array for the allele and reveals the machines
-      	//double end = 16;
-      	//double random = new Random().nextDouble();
-      	//double result = start + (random * (end - start));
-      	results[iterations]=(int)((ga.get_solution()).get_fitness());
-  	  //}  
-      
-    }//end for iterations  
+      results[iterations]=(int)((ga.get_solution()).get_fitness());
+  	        
+    }//end "50 for cycle" iterations  
     
-    	System.out.print("MakeSpans for "+n+" iterations,"+" pc="+pc+", pm="+pm+": ");   //Print the results for n (50) iterations 
-    	for(int i=0;i<n;i++){
-    		System.out.print(results[i]+",");
+    	System.out.print("MakeSpans for "+n+" iterations, "+"MAX_ISTEPS " + MAX_ISTEPS +", pc="+pc+", pm="+pm+", popsize="+popsize+": ");   //Print the results for n (50) iterations 
+    		for(int i=0;i<n;i++){
+    			System.out.print(results[i]+",");
     	}
-    
-    
+      
   }// end public static void main
 
 }
