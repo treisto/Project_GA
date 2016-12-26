@@ -15,17 +15,16 @@ public class MyproblemMMSP extends Problem {
 	public double Evaluate(Individual indiv) {
 		
 		double[] execTimeArray = new double[16];
-		// TODO Auto-generated method stub
 		double totalExecTime=0.0;
-		for(int i=0;i<CL;i++){					/////////(9) we calc the max. exec.time of each gene
+		for(int i=0;i<CL;i++){					///////// *(I) compute maximum processing time of each gene - parse and store for each machine
 			int _machine = indiv.get_allele(i);
 			execTimeArray[_machine]+=instanceParser.getInstanceValue(i,_machine);
 		}
 
-		return getMaxValue(execTimeArray);  //////(10) return the max exec. time for each gene we add minus to get the minimize exec. time. 
+		return getMaxValue(execTimeArray);  ////// *(J) return max processing time of each gene we add minus to get the minimized processing time. 
 	}
 	
-	// getting the maximum value
+	// getting the maximum value - parse and always keep max value
 	public static double getMaxValue(double[] array){  
 	      double maxValue = array[0];  
 	      for(int i=1;i < array.length;i++){  

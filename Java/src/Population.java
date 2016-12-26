@@ -36,7 +36,7 @@ public class Population
     // Initialize statistics
     bestp = 0;     worstp = 0;
 //    bestf = 0.0;   avgf   = 0.0;   worstf = 9999999999.0;    BESTF = 0.0;
-    bestf = 9999999999.0;   avgf   = 0.0;   worstf =  0.0;   BESTF = 9999999999.0; ///// (8) we change the value of bestf in order to obtain the minimised one.
+    bestf = 9999999999.0;   avgf   = 0.0;   worstf =  0.0;   BESTF = 9999999999.0; ///// *(H) change value of bestf so to obtain the minimised result.
 
   }
 

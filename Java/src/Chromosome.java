@@ -15,21 +15,21 @@ public class Chromosome implements Serializable
 {
   private byte alleles[];		// Allele vector
   private int  L;			// Length of the allele vector
-  private static Random r = new Random(); // Only the first time it is initialized
+  private static Random r = new Random(); // initialized just the first time
 
 
   // CONSTRUCTOR - FILL UP THE CONTENTS
   public Chromosome(int length)
   {
 
-    alleles = new byte[length];
+    alleles = new byte[length]; //we can keep byte because our values are 1..16 which is in the range of byte
     L = length;
     for (int i=0; i<length; i++){
-    //if(r.nextDouble()>0.5)          // Returns values in [0..1]    /// NOT IN USE
+    //if(r.nextDouble()>0.5)          // disabled - values 0/1 
     //alleles[i] = 1;
-    //else
+    //else1
     //alleles[i] = 0;
-    	double start = 0;		//(2) we use 0-16 array for the allele and reveals the machines
+    	double start = 0;		////// *(B) use random 0..16 array for the allele (the machines)
     	double end = 16;
     	double random = new Random().nextDouble();
     	double result = start + (random * (end - start));

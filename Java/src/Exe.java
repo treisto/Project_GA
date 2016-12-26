@@ -41,8 +41,8 @@ public class Exe
     double pc         = 1;                          // Crossover probability
     double pm  = 1/(double)((double)gn*(double)gl); // Mutation probability
     double tf         = (double)0.0 ;               // Target fitness being sought
-    long   MAX_ISTEPS = 50000;  				////////(3) we change the execution steps by this number.
-    int    n          = 1;                          //number of iterations (steps)
+    long   MAX_ISTEPS = 100000;  				//////// *(C) - number of execution steps.
+    int    n          = 50;                     /////// *(K) - number of iterations (steps)
     int    results[];                               //array where we store the result of each iteration (best Makespan)
     results = new int[n];
     
@@ -53,7 +53,7 @@ public class Exe
 
     // problem = new ProblemPPeaks(); 
     //problem = new ProblemPPeaks();
-    problem = new MyproblemMMSP("u_c_hihi_512_16.txt"); 				////////(4) we open the file we need
+    problem = new MyproblemMMSP("u_c_hihi_512_16.txt"); 				//////// *(D) open the problem instance we want to process
     //InstanceParser ip = new InstanceParser("u_c_hihi_512_16.txt");
     //ip.readInstanceFile();
     
@@ -95,7 +95,7 @@ public class Exe
     
     	System.out.print("MakeSpans for "+n+" iterations, "+"MAX_ISTEPS " + MAX_ISTEPS +", pc="+pc+", pm="+pm+", popsize="+popsize+": ");   //Print the results for n (50) iterations 
     		for(int i=0;i<n;i++){
-    			System.out.print(results[i]+",");
+    			System.out.print(results[i]+",");   ////// *(L) - print the one dimensional array - 50 length (the makespans obtained for 50 runs) 
     	}
       
   }// end public static void main

@@ -97,7 +97,7 @@ public class Algorithm
 //    byte alelle=0;
     Random r = new Random();
 
-	double start = 0;	///// (1) machine from 0-16  because in the commented area we take 0 and 1.
+	double start = 0;	///// *(A) add machines from 0-16 instead of binary 0/1
 	double end = 16;
 	byte result;// = start + (r.nextDouble() * (end - start));
 	
@@ -116,7 +116,7 @@ public class Algorithm
     return aux_indiv;
   }
   
-/* NOT IN USE
+/* Binary - Disabled
   // MUTATE A BINARY CHROMOSOME                       
   public Individual mutate(Individual p1)
   {

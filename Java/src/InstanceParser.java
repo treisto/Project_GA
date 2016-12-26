@@ -7,7 +7,7 @@ import java.io.IOException;
 public class InstanceParser {
 	
 	private String fileName;
-	private String baseDir = "../Instances/";
+	private String baseDir = "../Instances/"; // folder to load the txt files
 	private double[][] executionTimeVectors;
 	
 	InstanceParser(String _instance_name){
@@ -23,19 +23,19 @@ public class InstanceParser {
 		String instFile = baseDir+fileName;
 		BufferedReader br = null;
 		String line = "";
-		String lineSplitBy = " +";  							 //////(6) remove all spaces 
+		String lineSplitBy = " +";  							 //////  *(F) remove spaces 
 	 
 		try {
 	 
 			br = new BufferedReader(new FileReader(instFile));
 			int i=0;
 			while ((line = br.readLine()) != null) {
-				line=line.replace(",", ""); // (5) swap comma with the empty symbol in order to erase all commas from the file.
+				line=line.replace(",", ""); // *(E) swap comma with void.
 			    // use comma as separator
 				String[] splittedLine = line.split(lineSplitBy);
 				if(splittedLine.length>1){
 					for(int j=0;j<splittedLine.length-1;j++){			
-						executionTimeVectors[i][j]=Double.parseDouble(splittedLine[j+1]); 		///////(7) erase numbers from the first column of the file. 
+						executionTimeVectors[i][j]=Double.parseDouble(splittedLine[j+1]); 		///////  *(G) delete numbers from first column. 
 					}
 				}
 				i++;
